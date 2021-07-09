@@ -28,6 +28,7 @@ func main() {
 	http.HandleFunc("/", handler)
 
 	fmt.Printf("Starting server at %v...\n", listenAddr)
+	fmt.Printf("Workers Link: %v\n", workerUrl)
 	if err := http.ListenAndServe(listenAddr, nil); err != nil {
 		log.Fatal(err)
 	}
