@@ -12,7 +12,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		if !allowedHosts[r.Host] {
 			http.Error(w, "503", http.StatusServiceUnavailable)
 		}
-		http.Redirect(w, r, convFastGitToCloudFlareWorker("https://"+r.Host+"/"+r.RequestURI), 301)
+		http.Redirect(w, r, convFastGitToCloudFlareWorker(r.Host, r.RequestURI), 301)
 
 	default:
 		http.Error(w, "503", http.StatusServiceUnavailable)

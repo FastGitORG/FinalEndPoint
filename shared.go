@@ -6,10 +6,10 @@ const (
 )
 
 var (
-	convLinkMap = map[string]string{
-		"https://raw.fastgit.org":      "https://raw.githubusercontent.com",
-		"https://download.fastgit.org": "https://github.com",
-		"https://hub.fastgit.org":      "https://github.com",
+	convHostMap = map[string]string{
+		"raw.fastgit.org":      "raw.githubusercontent.com",
+		"download.fastgit.org": "github.com",
+		"hub.fastgit.org":      "github.com",
 	}
 
 	allowedHosts = map[string]bool{
