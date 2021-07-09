@@ -23,6 +23,8 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	parseArgs()
+
 	http.HandleFunc("/", handler)
 
 	fmt.Printf("Starting server at %v...\n", listenAddr)
