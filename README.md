@@ -23,3 +23,7 @@ can help FastGit UK redirect the users to the correct Workers link.
                           | Final EndPoint +------+ CloudFlare Workers |
                           +----------------+      +--------------------+
 ```
+
+## License
+
+MIT
