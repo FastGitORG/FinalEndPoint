@@ -9,11 +9,13 @@ import (
 func handler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "GET":
-		if !allowedHosts[r.Host] {
+		url, ok := convFastGitToCloudFlareWorker(r.Host, r.RequestURI)
+		if ok {
+			http.Redirect(w, r, url, 301)
+		} else {
 			http.Error(w, "503", http.StatusServiceUnavailable)
 		}
-		http.Redirect(w, r, convFastGitToCloudFlareWorker(r.Host, r.RequestURI), 301)
-
+		return
 	default:
 		http.Error(w, "503", http.StatusServiceUnavailable)
 		return
