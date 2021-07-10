@@ -14,6 +14,8 @@ var (
 		"raw.fastgit.org":      "raw.githubusercontent.com",
 		"download.fastgit.org": "github.com",
 		"hub.fastgit.org":      "github.com",
+		"archive.fastgit.org":  "github.com",
+		"codeload.fastgit.org": "codeload.github.com",
 	}
 )
 
