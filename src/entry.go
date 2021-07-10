@@ -17,11 +17,11 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		if ok {
 			http.Redirect(w, r, url, 301)
 		} else {
-			http.Error(w, "503", http.StatusServiceUnavailable)
+			http.Error(w, "503 Bad Request - Not Allowed Url", http.StatusServiceUnavailable)
 		}
 		return
 	default:
-		http.Error(w, "503", http.StatusServiceUnavailable)
+		http.Error(w, "503 Bad Request - Not Allowed Method", http.StatusServiceUnavailable)
 		return
 	}
 }
