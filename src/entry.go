@@ -13,6 +13,11 @@ func handler(w http.ResponseWriter, r *http.Request) {
 			w.Write([]byte("OK by FinalEndPoint"))
 			return
 		}
+
+		if isLog {
+			log.Println(r.Host + r.RequestURI)
+		}
+
 		url, ok := convFastGitToCloudFlareWorker(r.Host, r.RequestURI)
 		if ok {
 			http.Redirect(w, r, url, 301)
