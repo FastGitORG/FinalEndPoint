@@ -9,6 +9,10 @@ import (
 func handler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "GET":
+		if r.RequestURI == "/" {
+			w.Write([]byte("OK by FinalEndPoint"))
+			return
+		}
 		url, ok := convFastGitToCloudFlareWorker(r.Host, r.RequestURI)
 		if ok {
 			http.Redirect(w, r, url, 301)
