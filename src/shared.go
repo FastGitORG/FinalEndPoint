@@ -15,3 +15,9 @@ var (
 		"hub.fastgit.org":      "github.com",
 	}
 )
+
+const (
+	robotsTxt = "User-Agent: *\nDisallow: /"
+)
+
+var robotsTxtByte = []byte(robotsTxt)

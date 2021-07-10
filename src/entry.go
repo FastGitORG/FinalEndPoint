@@ -24,6 +24,11 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if r.RequestURI == "/robots.txt" {
+		w.Write(robotsTxtByte)
+		return
+	}
+
 	if isLog {
 		log.Println(r.Host + r.RequestURI)
 	}
