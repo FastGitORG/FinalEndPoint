@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"strings"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
@@ -11,6 +12,11 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	case "GET":
 		if r.RequestURI == "/" {
 			w.Write([]byte("OK by FinalEndPoint"))
+			return
+		}
+
+		if strings.HasPrefix(r.RequestURI, "/w2766/") {
+			http.Error(w, "402 - You NEED pay!", http.StatusPaymentRequired)
 			return
 		}
 
