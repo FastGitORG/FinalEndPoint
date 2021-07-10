@@ -4,7 +4,8 @@ package main
 var (
 	listenAddr string
 	workerUrl  string
-	isLog        bool
+	isLog      bool
+	confPath   string
 )
 
 // Key: Value = Source Host: Replaced Host

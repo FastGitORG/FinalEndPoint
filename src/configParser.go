@@ -19,6 +19,10 @@ func parseFromStringArray(conf []string) map[string]string {
 	return m
 }
 
-func parseFromFile(path string) map[string]string {
-	return parseFromString(readAllText(path))
+func parseFromFile(path string) (map[string]string, bool) {
+	s, ok := readAllText(path)
+	if !ok {
+		return nil, false
+	}
+	return parseFromString(s), true
 }

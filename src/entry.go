@@ -43,7 +43,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	parseArgs()
+	initialise()
 
 	http.HandleFunc("/", handler)
 
@@ -53,3 +53,15 @@ func main() {
 		log.Fatal(err)
 	}
 }
+
+func initialise() {
+	parseArgs()
+
+	if confPath != "" {
+		m, ok:= parseFromFile(confPath)
+		if ok {
+			convHostMap = m
+		}
+	}
+}
+
