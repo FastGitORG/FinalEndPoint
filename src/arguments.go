@@ -10,7 +10,7 @@ func parseArgs() {
 	flag.StringVar(&workerUrl, "worker", "https://endpoint.fastgit.org", "The final endpoint place. Default is https://endpoint.fastgit.org")
 	flag.Parse()
 
-	if strings.HasSuffix(workerUrl, "/") {
-		workerUrl = workerUrl[:len(workerUrl)-1]
+	if !strings.HasSuffix(workerUrl, "/") {
+		workerUrl += "/"
 	}
 }
