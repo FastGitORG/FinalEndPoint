@@ -14,4 +14,5 @@ func parseArgs() {
 	if !strings.HasSuffix(workerUrl, "/") {
 		workerUrl += "/"
 	}
+
 }
