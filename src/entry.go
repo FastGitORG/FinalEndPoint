@@ -23,6 +23,11 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "402 - You NEED pay!", http.StatusPaymentRequired)
 		return
 	}
+	
+	if strings.HasPrefix(r.RequestURI, "/renbaoshuo/") {
+		http.Error(w, "402 - FUCK YOU，You can only do DDOS？idiot！", http.StatusPaymentRequired)
+		return
+	}
 
 	if r.RequestURI == "/robots.txt" {
 		w.Write(robotsTxtByte)
