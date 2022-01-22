@@ -10,7 +10,23 @@ import (
 func handler(w http.ResponseWriter, r *http.Request) {
 
 	if r.RequestURI == "/" {
-		w.Write([]byte("OK by FinalEndPoint"))
+		w.Write([]byte(`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="3; url=https://doc.fastgit.org">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FinalEndPoint</title>
+</head>
+<body>
+<p>OK by FinalEndPoint</p>
+<p>
+    The browser will be redirected to the document page, please wait 3 seconds.
+</p>
+</body>
+</html>
+`))
 		return
 	}
 
@@ -58,10 +74,9 @@ func initialise() {
 	parseArgs()
 
 	if confPath != "" {
-		m, ok:= parseFromFile(confPath)
+		m, ok := parseFromFile(confPath)
 		if ok {
 			convHostMap = m
 		}
 	}
 }
-
